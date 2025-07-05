@@ -20,6 +20,51 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
+    },
+    {
+      "managers": ["dockerfile"],
+      "matchPaths": ["base/Dockerfile"],
+      "matchPackageNames": ["golang"],
+      "extractVersion": "^ENV GO_VERSION=(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "datasources": ["docker"],
+      "packageNames": ["golang"],
+      "groupName": "Update Go version in base/Dockerfile"
+    },
+    {
+      "managers": ["dockerfile"],
+      "matchPaths": ["base/Dockerfile"],
+      "matchPackageNames": ["ziglang"],
+      "extractVersion": "^ENV ZIG_VERSION=(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "datasources": ["docker"],
+      "packageNames": ["ziglang"],
+      "groupName": "Update Zig version in base/Dockerfile"
+    },
+    {
+      "managers": ["dockerfile"],
+      "matchPaths": ["base/Dockerfile"],
+      "matchPackageNames": ["fyne"],
+      "extractVersion": "^ENV FYNE_VERSION=(?<version>v[\\d\\.]+)$",
+      "datasources": ["github-tags"],
+      "packageNames": ["fyne-io/fyne"],
+      "groupName": "Update Fyne version in base/Dockerfile"
+    },
+    {
+      "managers": ["dockerfile"],
+      "matchPaths": ["base/Dockerfile"],
+      "matchPackageNames": ["fixuid"],
+      "extractVersion": "^ENV FIXUID_VERSION=(?<version>[\\d\\.]+)$",
+      "datasources": ["github-releases"],
+      "packageNames": ["chmln/fixuid"],
+      "groupName": "Update FixUID version in base/Dockerfile"
+    },
+    {
+      "managers": ["dockerfile"],
+      "matchPaths": ["base/Dockerfile"],
+      "matchPackageNames": ["minisign"],
+      "extractVersion": "^ENV MINISIGN_VERSION=(?<version>[\\d\\.]+)$",
+      "datasources": ["github-releases"],
+      "packageNames": ["jedisct1/minisign"],
+      "groupName": "Update Minisign version in base/Dockerfile"
     }
   ]
 }
